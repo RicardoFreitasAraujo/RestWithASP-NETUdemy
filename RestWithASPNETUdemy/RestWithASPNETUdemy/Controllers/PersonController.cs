@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RestWithASPNETUdemy.Business.Implementation;
+using RestWithASPNETUdemy.Data.VO;
 using RestWithASPNETUdemy.Model;
 
 namespace RestWithASPNETUdemy.Controllers
@@ -37,14 +38,14 @@ namespace RestWithASPNETUdemy.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] Person person)
+        public IActionResult Post([FromBody] PersonVO person)
         {
             if (person == null) return BadRequest();
             return Ok(this._personBusiness.Create(person));
         }
 
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody]Person person)
+        public IActionResult Put(int id, [FromBody]PersonVO person)
         {
             if (person == null) return NotFound();
             return Ok(this._personBusiness.Update(person));

@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using RestWithASPNETUdemy.Data.Converters;
+using RestWithASPNETUdemy.Data.VO;
 using RestWithASPNETUdemy.Model;
 using RestWithASPNETUdemy.Repository;
 using RestWithASPNETUdemy.Repository.Generic;
@@ -12,15 +14,19 @@ namespace RestWithASPNETUdemy.Business.Implementation
     public class PersonBusiness : IPersonBusiness
     {
         private readonly IRepository<Person> _repository;
+        private readonly PersonConverter _converter;
 
         public PersonBusiness(IRepository<Person> repository)
         {
             this._repository = repository;
+            this._converter = new PersonConverter();
         }
 
-        public Person Create(Person person)
+        public PersonVO Create(PersonVO person)
         {
-            return this._repository.Create(person);
+            var personEntity = _converter.Parse(person);
+            var personVO = _repository.Create(personEntity);
+            return _converter.Parse(personVO);
         }
 
         public void Delete(long id)
@@ -28,20 +34,21 @@ namespace RestWithASPNETUdemy.Business.Implementation
             this._repository.Delete(id);
         }
 
-        public List<Person> FindAll()
+        public List<PersonVO> FindAll()
         {
-            return this._repository.FindAll();
+            return _converter.ParseList(this._repository.FindAll());
         }
 
-        public Person FindById(long id)
+        public PersonVO FindById(long id)
         {
-            return this._repository.FindById(id);
+            var personEntity = this._repository.FindById(id);
+            return  _converter.Parse(personEntity);
         }
 
-        public Person Update(Person person)
+        public PersonVO Update(PersonVO person)
         {
-
-            return this._repository.Update(person);
+            var personEntity = _converter.Parse(person);
+            return  _converter.Parse(this._repository.Update(personEntity));
         }
 
     }
