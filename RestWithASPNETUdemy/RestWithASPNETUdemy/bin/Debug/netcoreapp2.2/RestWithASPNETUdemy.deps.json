@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "30c4d1022573f098428e7cf4069ec0f0d57df578"
+    "signature": "7fe660bba30586961e3654bb8b23ca7ddbdeb091"
   },
   "compilationOptions": {
     "defines": [
@@ -26,6 +26,7 @@
         "dependencies": {
           "Evolve": "2.2.0",
           "Microsoft.AspNetCore.App": "2.2.0",
+          "Microsoft.AspNetCore.Mvc.Formatters.Xml.Extensions": "2.2.0",
           "Microsoft.AspNetCore.Mvc.Versioning": "3.1.5",
           "Microsoft.AspNetCore.Razor.Design": "2.2.0",
           "Microsoft.NETCore.App": "2.2.0",
@@ -79,6 +80,21 @@
         },
         "compile": {
           "lib/netstandard1.0/Google.Protobuf.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Mvc.Formatters.Xml.Extensions/2.2.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.Core": "2.2.0",
+          "Microsoft.AspNetCore.Mvc.Formatters.Xml": "2.2.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Mvc.Formatters.Xml.Extensions.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Mvc.Formatters.Xml.Extensions.dll": {}
         }
       },
       "Microsoft.AspNetCore.Mvc.Versioning/3.1.5": {
@@ -3864,6 +3880,13 @@
       "sha512": "sha512-741fGeDQjixBJaU2j+0CbrmZXsNJkTn/hWbOh4fLVXndHsCclJmWznCPWrJmPoZKvajBvAz3e8ECJOUvRtwjNQ==",
       "path": "google.protobuf/3.6.1",
       "hashPath": "google.protobuf.3.6.1.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Mvc.Formatters.Xml.Extensions/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rcHXUhp1T2oilIjgl7DzFEO/Z57LsP9nmyAt1YBEN7Y2wxsp8oVkwhmqjnx8WkMqVgNfb2JJgVa1KbhirQ0m2Q==",
+      "path": "microsoft.aspnetcore.mvc.formatters.xml.extensions/2.2.0",
+      "hashPath": "microsoft.aspnetcore.mvc.formatters.xml.extensions.2.2.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Mvc.Versioning/3.1.5": {
       "type": "package",

@@ -12,6 +12,7 @@ using RestWithASPNETUdemy.Repository;
 using RestWithASPNETUdemy.Repository.Generic;
 using RestWithASPNETUdemy.Repository.Implementation;
 using System;
+using System.Net.Http.Headers;
 
 namespace RestWithASPNETUdemy
 {
@@ -49,7 +50,17 @@ namespace RestWithASPNETUdemy
                 }
             }
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc(options => {
+                options.RespectBrowserAcceptHeader = true;
+                //options.FormatterMappings.SetMediaTypeMappingForFormat("xml", MediaTypeHeaderValue.Parse("text/xml"));
+                //options.FormatterMappings.SetMediaTypeMappingForFormat("json", MediaTypeHeaderValue.Parse("application/json"));
+
+                options.FormatterMappings.SetMediaTypeMappingForFormat("xml", "text/xml");
+                options.FormatterMappings.SetMediaTypeMappingForFormat("json", "application/json");
+            })
+
+            .AddXmlSerializerFormatters()    
+            .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             //Dependcy Injection
             services.AddScoped<IPersonBusiness, PersonBusiness>();

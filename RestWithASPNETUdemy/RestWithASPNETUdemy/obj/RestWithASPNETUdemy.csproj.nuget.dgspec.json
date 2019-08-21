@@ -54,6 +54,10 @@
               "version": "[2.2.0, )",
               "autoReferenced": true
             },
+            "Microsoft.AspNetCore.Mvc.Formatters.Xml.Extensions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.AspNetCore.Mvc.Versioning": {
               "target": "Package",
               "version": "[3.1.5, )"

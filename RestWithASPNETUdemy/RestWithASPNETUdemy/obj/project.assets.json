@@ -1039,6 +1039,19 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Mvc.Formatters.Xml.dll": {}
         }
       },
+      "Microsoft.AspNetCore.Mvc.Formatters.Xml.Extensions/2.2.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.Core": "2.2.0",
+          "Microsoft.AspNetCore.Mvc.Formatters.Xml": "2.2.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Mvc.Formatters.Xml.Extensions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Mvc.Formatters.Xml.Extensions.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Mvc.Localization/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -5850,6 +5863,19 @@
         "lib/netstandard2.0/Microsoft.AspNetCore.Mvc.Formatters.Xml.xml",
         "microsoft.aspnetcore.mvc.formatters.xml.2.2.0.nupkg.sha512",
         "microsoft.aspnetcore.mvc.formatters.xml.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Mvc.Formatters.Xml.Extensions/2.2.0": {
+      "sha512": "rcHXUhp1T2oilIjgl7DzFEO/Z57LsP9nmyAt1YBEN7Y2wxsp8oVkwhmqjnx8WkMqVgNfb2JJgVa1KbhirQ0m2Q==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.mvc.formatters.xml.extensions/2.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Mvc.Formatters.Xml.Extensions.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Mvc.Formatters.Xml.Extensions.xml",
+        "microsoft.aspnetcore.mvc.formatters.xml.extensions.2.2.0.nupkg.sha512",
+        "microsoft.aspnetcore.mvc.formatters.xml.extensions.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Mvc.Localization/2.2.0": {
@@ -13718,6 +13744,7 @@
     ".NETCoreApp,Version=v2.2": [
       "Evolve >= 2.2.0",
       "Microsoft.AspNetCore.App >= 2.2.0",
+      "Microsoft.AspNetCore.Mvc.Formatters.Xml.Extensions >= 2.2.0",
       "Microsoft.AspNetCore.Mvc.Versioning >= 3.1.5",
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
       "Microsoft.NETCore.App >= 2.2.0",
@@ -13780,6 +13807,10 @@
             "target": "Package",
             "version": "[2.2.0, )",
             "autoReferenced": true
+          },
+          "Microsoft.AspNetCore.Mvc.Formatters.Xml.Extensions": {
+            "target": "Package",
+            "version": "[2.2.0, )"
           },
           "Microsoft.AspNetCore.Mvc.Versioning": {
             "target": "Package",
