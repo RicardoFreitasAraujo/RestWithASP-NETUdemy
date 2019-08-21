@@ -9,15 +9,16 @@ using RestWithASPNETUdemy.Model;
 
 namespace RestWithASPNETUdemy.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class BooksController : ControllerBase
     {
-        private IPersonBusiness _bookBusiness;
+        private IBookBusiness _bookBusiness;
 
-        public BooksController()
+        public BooksController(IBookBusiness bookBusiness)
         {
-
+            this._bookBusiness = bookBusiness;
         }
 
         [HttpGet]
@@ -35,10 +36,10 @@ namespace RestWithASPNETUdemy.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] Person person)
+        public IActionResult Post([FromBody] Book book)
         {
-            if (person == null) return BadRequest();
-            return Ok(this._bookBusiness.Create(person));
+            if (book == null) return BadRequest();
+            return Ok(this._bookBusiness.Create(book));
         }
 
         [HttpPut("{id}")]

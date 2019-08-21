@@ -9,6 +9,7 @@ using MySql.Data.MySqlClient;
 using RestWithASPNETUdemy.Business.Implementation;
 using RestWithASPNETUdemy.Model.Context;
 using RestWithASPNETUdemy.Repository;
+using RestWithASPNETUdemy.Repository.Generic;
 using RestWithASPNETUdemy.Repository.Implementation;
 using System;
 
@@ -53,6 +54,8 @@ namespace RestWithASPNETUdemy
             //Dependcy Injection
             services.AddScoped<IPersonBusiness, PersonBusiness>();
             services.AddScoped<IPersonRepository, PersonRepository>();
+            services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
+            services.AddScoped<IBookBusiness, BookBusiness>();
 
             //Versão de API
             services.AddApiVersioning();
