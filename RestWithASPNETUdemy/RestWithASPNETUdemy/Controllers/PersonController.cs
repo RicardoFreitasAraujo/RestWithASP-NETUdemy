@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NSwag;
 using RestWithASPNETUdemy.Business.Implementation;
 using RestWithASPNETUdemy.Data.VO;
 using RestWithASPNETUdemy.Model;
@@ -12,6 +14,7 @@ namespace RestWithASPNETUdemy.Controllers
 {
     
     [ApiController]
+    [Authorize("Bearer")]
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
     public class PersonController : ControllerBase
@@ -24,6 +27,7 @@ namespace RestWithASPNETUdemy.Controllers
         }
 
         [HttpGet]
+        //[SwaggerResponse((200), Type = typeof(List<PersonVO>))]
         public IActionResult Get()
         {
             return Ok(this._personBusiness.FindAll());

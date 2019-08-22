@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RestWithASPNETUdemy.Business.Implementation;
@@ -10,6 +12,7 @@ using RestWithASPNETUdemy.Model;
 namespace RestWithASPNETUdemy.Controllers
 {
     [ApiController]
+    [Authorize("Bearer")]
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
     public class BooksController : ControllerBase
@@ -24,6 +27,7 @@ namespace RestWithASPNETUdemy.Controllers
         [HttpGet]
         public IActionResult Get()
         {
+            //string user = this.User.Claims.Where(cl => cl.Type == JwtRegisteredClaimNames.UniqueName).First().Value;
             return Ok(this._bookBusiness.FindAll());
         }
 
